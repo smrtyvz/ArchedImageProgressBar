@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ArchedImageProgressBar">
+        <attr name="circle_size" format="dimension" />
+        <attr name="circle_color" format="color" />
+        <attr name="arch_size" format="dimension" />
+        <attr name="arch_color" format="color" />
+    </declare-styleable>
+
+
+</resources>
