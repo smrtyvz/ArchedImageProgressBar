@@ -20,12 +20,12 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
 
         whatsappProgress.setProgressImage(wpIcon, 17.50f);
         whatsappProgress.setCircleSize(40.0f);
-        whatsappProgress.setArcSize(45.0f);
+        whatsappProgress.setArchSize(45.0f);
         whatsappProgress.setCircleColor(Color.parseColor("#4db6ac"));
-        whatsappProgress.setArcColor(Color.parseColor("#004A01"));
-        whatsappProgress.setArcLength(50);
-        whatsappProgress.setArcStroke(12.0f);
-        whatsappProgress.setArcSpeed(6);
+        whatsappProgress.setArchColor(Color.parseColor("#004A01"));
+        whatsappProgress.setArchLength(50);
+        whatsappProgress.setArchStroke(12.0f);
+        whatsappProgress.setArchSpeed(6);
 
         /*--------------INSTAGRAM-------------*/
         ArchedImageProgressBar instagramArcProgress = findViewById(R.id.ig_progressBar);
@@ -33,12 +33,12 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
 
         instagramArcProgress.setProgressImage(igIcon, 28.0f);
         instagramArcProgress.setCircleSize(50.0f);
-        instagramArcProgress.setArcSize(55.0f);
+        instagramArcProgress.setArchSize(55.0f);
         instagramArcProgress.setCircleColor(Color.parseColor("#f44336"));
-        instagramArcProgress.setArcColor(Color.parseColor("#b71c1c"));
-        instagramArcProgress.setArcLength(70);
-        instagramArcProgress.setArcStroke(18.0f);
-        instagramArcProgress.setArcSpeed(9);
+        instagramArcProgress.setArchColor(Color.parseColor("#b71c1c"));
+        instagramArcProgress.setArchLength(70);
+        instagramArcProgress.setArchStroke(18.0f);
+        instagramArcProgress.setArchSpeed(9);
 
 
         /*--------------LINKEDIN-----------------*/
@@ -48,12 +48,12 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
 
         linkedinArcProgress.setProgressImage(linkedinIcon,14.0f);
         linkedinArcProgress.setCircleSize(30.0f);
-        linkedinArcProgress.setArcSize(32.75f);
+        linkedinArcProgress.setArchSize(32.75f);
         linkedinArcProgress.setCircleColor(Color.parseColor("#3949ab"));
-        linkedinArcProgress.setArcColor(Color.parseColor("#1a237e"));
-        linkedinArcProgress.setArcLength(210);
-        linkedinArcProgress.setArcStroke(8.85f);
-        linkedinArcProgress.setArcSpeed(5);
+        linkedinArcProgress.setArchColor(Color.parseColor("#1a237e"));
+        linkedinArcProgress.setArchLength(210);
+        linkedinArcProgress.setArchStroke(8.85f);
+        linkedinArcProgress.setArchSpeed(5);
 
 
         /*---------------SPOTIFY---------------*/
@@ -62,12 +62,12 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
 
         spotifyArcProgress.setProgressImage(spotifyIcon, 15.0f);
         spotifyArcProgress.setCircleSize(30.0f);
-        spotifyArcProgress.setArcSize(33.0f);
+        spotifyArcProgress.setArchSize(33.0f);
         spotifyArcProgress.setCircleColor(Color.parseColor("#64dd17"));
-        spotifyArcProgress.setArcColor(Color.parseColor("#000000"));
-        spotifyArcProgress.setArcLength(90);
-        spotifyArcProgress.setArcStroke(21.0f);
-        spotifyArcProgress.setArcSpeed(4);
+        spotifyArcProgress.setArchColor(Color.parseColor("#000000"));
+        spotifyArcProgress.setArchLength(90);
+        spotifyArcProgress.setArchStroke(21.0f);
+        spotifyArcProgress.setArchSpeed(4);
 
 
         /*---------------CUSTOM_TEXT_1---------------*/
@@ -76,12 +76,12 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         customTextArcProgress.setProgressText(new String[]{"Loading"}, "#c5cae9");
         customTextArcProgress.setProgressTextSize(13.0f);
         customTextArcProgress.setCircleSize(35.0f);
-        customTextArcProgress.setArcSize(43.0f);
+        customTextArcProgress.setArchSize(43.0f);
         customTextArcProgress.setCircleColor(Color.parseColor("#3949ab"));
-        customTextArcProgress.setArcColor(Color.parseColor("#fb8c00"));
-        customTextArcProgress.setArcLength(120);
-        customTextArcProgress.setArcStroke(9.0f);
-        customTextArcProgress.setArcSpeed(3);
+        customTextArcProgress.setArchColor(Color.parseColor("#fb8c00"));
+        customTextArcProgress.setArchLength(120);
+        customTextArcProgress.setArchStroke(9.0f);
+        customTextArcProgress.setArchSpeed(3);
 
 
         /*---------------CUSTOM_TEXT_2---------------*/
@@ -90,11 +90,11 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         customText2ArcProgress.setProgressText(new String[]{"Wellcome !"}, "#ffffff");
         customText2ArcProgress.setProgressTextSize(14.25f);
         customText2ArcProgress.setCircleSize(45.0f);
-        customText2ArcProgress.setArcSize(48.0f);
+        customText2ArcProgress.setArchSize(48.0f);
         customText2ArcProgress.setCircleColor(Color.parseColor("#FFA000"));
-        customText2ArcProgress.setArcColor(Color.parseColor("#FF5722"));
-        customText2ArcProgress.setArcLength(180);
-        customText2ArcProgress.setArcStroke(15.0f);
-        customText2ArcProgress.setArcSpeed(7);
+        customText2ArcProgress.setArchColor(Color.parseColor("#FF5722"));
+        customText2ArcProgress.setArchLength(180);
+        customText2ArcProgress.setArchStroke(15.0f);
+        customText2ArcProgress.setArchSpeed(7);
     }
 }

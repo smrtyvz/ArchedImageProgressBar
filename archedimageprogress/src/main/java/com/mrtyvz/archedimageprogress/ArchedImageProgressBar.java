@@ -30,8 +30,8 @@ public class ArchedImageProgressBar extends View {
     private float mImageRadius;
     private int circleColor;
     private int archColor;
-    private int arcSpeed = 5;
-    private float arcStrokeWidth = 10.0f;
+    private int archSpeed = 5;
+    private float archStrokeWidth = 10.0f;
 
     private Paint mTextPaint;
     private boolean mDrawText = true;
@@ -74,7 +74,7 @@ public class ArchedImageProgressBar extends View {
 
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setColor(this.archColor);
-        this.paint.setStrokeWidth(this.arcStrokeWidth);
+        this.paint.setStrokeWidth(this.archStrokeWidth);
         this.oval.set((float) (this.getWidth() / 2) - this.archRadius, (float) (this.getHeight() / 2) - this.archRadius, (float) (this.getWidth() / 2) + this.archRadius, (float) (this.getHeight() / 2) + this.archRadius);
         canvas.drawArc(this.oval, (float) this.startAngle, (float) this.progressAngle, false, this.paint);
 
@@ -108,7 +108,7 @@ public class ArchedImageProgressBar extends View {
     Runnable progressAnimator = new Runnable() {
         public void run() {
             if (ArchedImageProgressBar.this.startAngle >= 1) {
-                ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle - arcSpeed;
+                ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle - archSpeed;
             } else {
                 ArchedImageProgressBar.this.startAngle = 360;
             }
@@ -133,16 +133,16 @@ public class ArchedImageProgressBar extends View {
         this.circleColor = color;
     }
 
-    public void setArcColor(int color) {
+    public void setArchColor(int color) {
         this.archColor = color;
     }
 
-    public void setArcLength(int length) {
+    public void setArchLength(int length) {
         this.progressAngle = length;
     }
 
-    public void setArcStroke(float stroke) {
-        this.arcStrokeWidth = stroke;
+    public void setArchStroke(float stroke) {
+        this.archStrokeWidth = stroke;
     }
 
     public void setProgressTextSize(float textSize) {
@@ -154,12 +154,12 @@ public class ArchedImageProgressBar extends View {
         this.circleRadius = Utils.convertDpToPixel(getResources(), size);
     }
 
-    public void setArcSize(float size) {
+    public void setArchSize(float size) {
         this.archRadius = Utils.convertDpToPixel(getResources(), size);
     }
 
-    public void setArcSpeed(int speed) {
-        this.arcSpeed = speed;
+    public void setArchSpeed(int speed) {
+        this.archSpeed = speed;
     }
 
     static abstract class Utils {
