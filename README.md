@@ -42,15 +42,15 @@ You should follow these two steps.
 
 ## Supported features
 
-* Set circle size and arc size.
-* Set circle color and arc color.
+* Set circle size and arch size.
+* Set circle color and arch color.
 * Set an image,logo,icon to inside of circle.
 * Set the size of image,logo,icon.
 * Set a text to inside of circle.
 * Set text size and text color.
-* Set arc movement speed.
-* Set arc width.
-* Set arc length.
+* Set arch movement speed.
+* Set arch width.
+* Set arch length.
 
 ## Usage
 
