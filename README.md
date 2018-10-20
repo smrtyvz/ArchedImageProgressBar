@@ -35,7 +35,7 @@ You should follow these two steps.
 
 ```
 	dependencies {
-	        compile 'com.github.smrtyvz:ArchedImageProgressBar:1.01'
+	        implementation 'com.github.smrtyvz:ArchedImageProgressBar:2.01'
 	}
 ```
 
