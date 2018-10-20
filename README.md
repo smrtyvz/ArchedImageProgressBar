@@ -11,7 +11,7 @@ Arched Image Progress Bar is easy to customize with a few methods and it can be 
 
 ## Requirements
 
-* Android 5.0 Lollipop (API lv 21) or greater
+* Android 4.2 JellyBean (API lv 17) or higher
 * Your favorite IDE
 
 ## Installing
