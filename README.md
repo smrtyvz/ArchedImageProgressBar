@@ -126,6 +126,10 @@ Recommended value : 10 to 300 *(for better design)*
 
 Recommended value : 1 to 15
 
+* Clockwise feature
+
+use .setClockwise(true)
+
 ## Authors
 
 * **Mert Ayvaz** - *Initial work* - [smrtyvz](https://github.com/smrtyvz)
