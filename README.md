@@ -51,6 +51,7 @@ You should follow these two steps.
 * Set arch movement speed.
 * Set arch width.
 * Set arch length.
+* Set animate direction as clockwise
 
 ## Usage
 
