@@ -40,6 +40,7 @@ public class ArchedImageProgressBar extends View {
     private float mStepSize = 1f;
     private float mTextSize;
     private String[] mCustomText = null;
+    private boolean isClockwise=false;
 
     private Bitmap mBitmap;
 
@@ -107,10 +108,18 @@ public class ArchedImageProgressBar extends View {
 
     Runnable progressAnimator = new Runnable() {
         public void run() {
-            if (ArchedImageProgressBar.this.startAngle >= 1) {
-                ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle - archSpeed;
+            if (isClockwise){
+                if (ArchedImageProgressBar.this.startAngle >= 1) {
+                    ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle + archSpeed;
+                } else {
+                    ArchedImageProgressBar.this.startAngle = 360;
+                }
             } else {
-                ArchedImageProgressBar.this.startAngle = 360;
+                if (ArchedImageProgressBar.this.startAngle >= 1) {
+                    ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle - archSpeed;
+                } else {
+                    ArchedImageProgressBar.this.startAngle = 360;
+                }
             }
 
             ArchedImageProgressBar.this.invalidate();
@@ -160,6 +169,10 @@ public class ArchedImageProgressBar extends View {
 
     public void setArchSpeed(int speed) {
         this.archSpeed = speed;
+    }
+
+    public void setClockwise(boolean isClockwise) {
+        this.isClockwise = isClockwise;
     }
 
     static abstract class Utils {

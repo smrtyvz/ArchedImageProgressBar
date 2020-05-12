@@ -1,14 +1,14 @@
-    package com.mrtyvz.archedimageprogressbar;
+package com.mrtyvz.archedimageprogressbar;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
 
-    public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         whatsappProgress.setArchLength(50);
         whatsappProgress.setArchStroke(12.0f);
         whatsappProgress.setArchSpeed(6);
+        whatsappProgress.setClockwise(true);
 
         /*--------------INSTAGRAM-------------*/
         ArchedImageProgressBar instagramArcProgress = findViewById(R.id.ig_progressBar);
@@ -44,9 +45,9 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         /*--------------LINKEDIN-----------------*/
 
         ArchedImageProgressBar linkedinArcProgress = findViewById(R.id.linkedin_progressBar);
-        Bitmap linkedinIcon = BitmapFactory.decodeResource(getResources(),R.drawable.linkedin_sign);
+        Bitmap linkedinIcon = BitmapFactory.decodeResource(getResources(), R.drawable.linkedin_sign);
 
-        linkedinArcProgress.setProgressImage(linkedinIcon,14.0f);
+        linkedinArcProgress.setProgressImage(linkedinIcon, 14.0f);
         linkedinArcProgress.setCircleSize(30.0f);
         linkedinArcProgress.setArchSize(32.75f);
         linkedinArcProgress.setCircleColor(Color.parseColor("#3949ab"));
@@ -68,6 +69,7 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         spotifyArcProgress.setArchLength(90);
         spotifyArcProgress.setArchStroke(21.0f);
         spotifyArcProgress.setArchSpeed(4);
+        spotifyArcProgress.setClockwise(true);
 
 
         /*---------------CUSTOM_TEXT_1---------------*/
@@ -96,5 +98,6 @@ import com.mrtyvz.archedimageprogress.ArchedImageProgressBar;
         customText2ArcProgress.setArchLength(180);
         customText2ArcProgress.setArchStroke(15.0f);
         customText2ArcProgress.setArchSpeed(7);
+        customText2ArcProgress.setClockwise(true);
     }
 }
