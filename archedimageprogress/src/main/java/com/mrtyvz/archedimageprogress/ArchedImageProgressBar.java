@@ -20,11 +20,12 @@ import android.view.View;
 public class ArchedImageProgressBar extends View {
     private Paint paint = new Paint();
     private Paint bitmapPaint = new Paint();
+    private RectF oval = new RectF();
+    private RectF bitmapOval = new RectF();
+
     private int startAngle = 240;
     private int progressAngle = 100;
 
-    private RectF oval = new RectF();
-    private RectF bitmapOval = new RectF();
     private float circleRadius;
     private float archRadius;
     private float mImageRadius;
@@ -34,21 +35,14 @@ public class ArchedImageProgressBar extends View {
     private float archStrokeWidth = 10.0f;
 
     private Paint mTextPaint;
-    private boolean mDrawText = true;
-    private float mValue = 0f;
-    private float mPhase = 0f;
-    private float mStepSize = 1f;
-    private float mTextSize;
     private String[] mCustomText = null;
-    private boolean isClockwise=false;
+    private boolean isClockwise = false;
 
     private Bitmap mBitmap;
-
 
     public ArchedImageProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        this.paint.setStyle(Paint.Style.STROKE);
         TypedArray defaultValuesArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ArchedImageProgressBar, 0, 0);
 
         try {
@@ -68,26 +62,51 @@ public class ArchedImageProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        this.paint.setFlags(1);
-        this.paint.setColor(this.circleColor);
-        this.paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle((float) (this.getWidth() / 2), (float) (this.getHeight() / 2), this.circleRadius, this.paint);
+        setPaintPropsForCircle(this.paint);
+        canvas.drawCircle((float) (this.getWidth() / 2), (float) (this.getHeight() / 2), circleRadius, paint);
+        setPaintPropsForArc(this.paint);
+        canvas.drawArc(oval, (float) startAngle, (float) progressAngle, false, paint);
+        setOvalPropsForArc(this.oval);
+        setBitmapOvalProps(this.bitmapOval);
+        setProgressImageIfProvided(canvas);
+        setProgressTextIfProvided(canvas);
+    }
 
-        this.paint.setStyle(Paint.Style.STROKE);
-        this.paint.setColor(this.archColor);
-        this.paint.setStrokeWidth(this.archStrokeWidth);
-        this.oval.set((float) (this.getWidth() / 2) - this.archRadius, (float) (this.getHeight() / 2) - this.archRadius, (float) (this.getWidth() / 2) + this.archRadius, (float) (this.getHeight() / 2) + this.archRadius);
-        canvas.drawArc(this.oval, (float) this.startAngle, (float) this.progressAngle, false, this.paint);
+    private void setPaintPropsForCircle(Paint paint) {
+        paint.setFlags(1);
+        paint.setColor(this.circleColor);
+        paint.setStyle(Paint.Style.FILL);
+    }
 
-        this.bitmapOval.set((float) (this.getWidth() / 2) - this.mImageRadius, (float) (this.getHeight() / 2) - this.mImageRadius, (float) (this.getWidth() / 2) + this.mImageRadius, (float) (this.getHeight() / 2) + this.mImageRadius);
+    private void setPaintPropsForArc(Paint paint) {
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(this.archColor);
+        paint.setStrokeWidth(this.archStrokeWidth);
+    }
 
-        if (mBitmap != null)
-            canvas.drawBitmap(mBitmap, null, bitmapOval, this.bitmapPaint);
+    private void setOvalPropsForArc(RectF oval) {
+        oval.set((float) (this.getWidth() / 2) - archRadius,
+                (float) (this.getHeight() / 2) - archRadius,
+                (float) (this.getWidth() / 2) + archRadius,
+                (float) (this.getHeight() / 2) + archRadius);
+    }
 
-        if (mDrawText) {
-            if (mCustomText != null) {
-                drawCustomText(canvas);
-            }
+    private void setBitmapOvalProps(RectF bitmapOval) {
+        bitmapOval.set((float) (this.getWidth() / 2) - mImageRadius,
+                (float) (this.getHeight() / 2) - mImageRadius,
+                (float) (this.getWidth() / 2) + mImageRadius,
+                (float) (this.getHeight() / 2) + mImageRadius);
+    }
+
+    private void setProgressImageIfProvided(Canvas canvas) {
+        if (mBitmap != null) {
+            canvas.drawBitmap(mBitmap, null, bitmapOval, bitmapPaint);
+        }
+    }
+
+    private void setProgressTextIfProvided(Canvas canvas) {
+        if (mCustomText != null) {
+            drawCustomText(canvas);
         }
     }
 
@@ -99,6 +118,9 @@ public class ArchedImageProgressBar extends View {
     }
 
     private void drawCustomText(Canvas c) {
+        float mValue = 0f;
+        float mPhase = 0f;
+        float mStepSize = 1f;
         int index = (int) ((mValue * mPhase) / mStepSize);
         if (index < mCustomText.length) {
             c.drawText(mCustomText[index], getWidth() / 2,
@@ -108,22 +130,17 @@ public class ArchedImageProgressBar extends View {
 
     Runnable progressAnimator = new Runnable() {
         public void run() {
-            if (isClockwise){
-                if (ArchedImageProgressBar.this.startAngle >= 1) {
-                    ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle + archSpeed;
+            if (startAngle >= 1) {
+                if (isClockwise) {
+                    startAngle = startAngle + archSpeed;
                 } else {
-                    ArchedImageProgressBar.this.startAngle = 360;
+                    startAngle = startAngle - archSpeed;
                 }
             } else {
-                if (ArchedImageProgressBar.this.startAngle >= 1) {
-                    ArchedImageProgressBar.this.startAngle = ArchedImageProgressBar.this.startAngle - archSpeed;
-                } else {
-                    ArchedImageProgressBar.this.startAngle = 360;
-                }
+                startAngle = 360;
             }
-
             ArchedImageProgressBar.this.invalidate();
-            ArchedImageProgressBar.this.postDelayed(this, 15L);
+            ArchedImageProgressBar.this.postDelayed(this, 12L);
         }
     };
 
@@ -155,12 +172,11 @@ public class ArchedImageProgressBar extends View {
     }
 
     public void setProgressTextSize(float textSize) {
-        this.mTextSize = textSize;
-        mTextPaint.setTextSize(Utils.convertDpToPixel(getResources(), mTextSize));
+        mTextPaint.setTextSize(Utils.convertDpToPixel(getResources(), textSize));
     }
 
     public void setCircleSize(float size) {
-        this.circleRadius = Utils.convertDpToPixel(getResources(), size);
+        this.circleRadius =  Utils.convertDpToPixel(getResources(), size);
     }
 
     public void setArchSize(float size) {
@@ -178,8 +194,7 @@ public class ArchedImageProgressBar extends View {
     static abstract class Utils {
         static float convertDpToPixel(Resources r, float dp) {
             DisplayMetrics metrics = r.getDisplayMetrics();
-            float px = dp * (metrics.densityDpi / 160f);
-            return px;
+            return dp * (metrics.densityDpi / 160f);
         }
     }
 
